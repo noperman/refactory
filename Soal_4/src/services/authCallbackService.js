@@ -4,13 +4,13 @@ const config = require("../config");
 
 function callback(req, res) {
   const body = {
-    client_id: config.clientId,
-    client_secret: config.clientSecret,
+    client_id: config.config.clientId,
+    client_secret: config.config.clientSecret,
     code: req.query.code,
   };
   const options = { headers: { accept: "application/json" } };
   axios
-    .post(`${config.oauthUrl}/access_token`, body, options)
+    .post(`${config.config.oauthUrl}/access_token`, body, options)
     .then((res) => resp.data["accessToken"])
     .then((accessToken) => {
       const user = UserServices.getUserInfo(accessToken);

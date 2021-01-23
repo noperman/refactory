@@ -4,7 +4,7 @@ const config = require("../config");
 function getUserInfo(token) {
     axios({
         method: "get",
-        url: `${config.apiUrl}/users`,
+        url: `${config.config.apiUrl}/users`,
         headers: {
           Authorization: "token " + token,
         },
