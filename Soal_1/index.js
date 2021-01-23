@@ -113,9 +113,12 @@ function lineSplitter(string,length){
 function processListProduk(data){
   if(data.length > 0){
     let result = ''
+    let total = 0
     data.forEach(element => {
       result += justify(element.produk, formatRupiah(element.harga, "Rp. "), 30, '.')+'\n'+' '
+      total = parseInt(total)+parseInt(element.harga)
     });
+    result += "\n\xa0"+justify("Total", formatRupiah(String(total), "Rp. "),30,".")
     return result
   }
 }
