@@ -28,10 +28,10 @@ search(
 let quest4 = []
 search(
   data,  
-  "console.log(new Date(element.purchased_at))"
-  // "if(element.type.toLowerCase() == 'furniture'){"+
-  //   "quest4.push(element)"+
-  // "}"
+  "var date = new Date(element.purchased_at * 1000);"+
+  "if(date.getFullYear() == 2020 && date.getMonth()+1 == 1 && date.getDate() == 16){"+
+    "quest4.push(element)"+
+  "}"
 )
 // 5 Find all items with brown color.
 let quest5 = []
@@ -65,7 +65,7 @@ console.log(
   // 4 Find all items was purchased at 16 Januari 2020.
   "4. Find all items was purchased at 16 Januari 2020. : ",
   spitter(), 
-  // quest4,
+  quest4,
   spitter(),
   // 5 Find all items with brown color.
   "5. Find all items with brown color. : ",
