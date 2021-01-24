@@ -25,6 +25,54 @@ search(
   "}"
 )
 // 4 Find users who have articles on year 2020. 
+let quest4 = []
+search(
+  data,
+  "if(element['articles:'].length > 0){"+
+    "element['articles:'].forEach(subel => {"+
+      "var date = new Date(subel.published_at);"+
+      "if(date.getFullYear() == 2020){"+
+        "quest4.push(element)"+
+      "}"+
+    "})"+
+  "}"
+)
+// 5 Find users who are born on 1986. 
+let quest5 = []
+search(
+  data,
+  "var date = new Date(element.profile.birthday);"+
+  "if(date.getFullYear() == 1986){"+
+    "quest5.push(element)"+
+  "}"
+)
+// 6 Find articles that contain "tips" on the title. 
+let quest6 = []
+search(
+  data,
+  "if(element['articles:'].length > 0){"+
+    "element['articles:'].forEach(subel => {"+
+      "if(subel.title.substr(0, 4).toLowerCase() == 'tips'){"+
+        "quest6.push(element)"+
+      "}"+
+    "})"+
+  "}"
+)
+// 7 Find articles published before August 2019.
+let quest7 = []
+search(
+  data,
+  "if(element['articles:'].length > 0){"+
+    "element['articles:'].forEach(subel => {"+
+      "var date = new Date(subel.published_at);"+
+      "if(date.getFullYear() == 2019){"+
+        "if(date.getMonth() < 8){"+
+          "quest7.push(element)"+
+        "}"+
+      "}"+
+    "})"+
+  "}"
+)
 
 console.log(
   // 1 Find users who doesn't have any phone numbers. 
@@ -41,6 +89,26 @@ console.log(
   "3. Find users who have 'annis' on their name : ",
   spitter(), 
   quest3,
+  spitter(),
+  // 4 Find users who have articles on year 2020. 
+  "4. Find users who have articles on year 2020. : ",
+  spitter(), 
+  quest4,
+  spitter(),
+  // 5 Find users who are born on 1986. 
+  "5. Find users who are born on 1986. : ",
+  spitter(), 
+  quest5,
+  spitter(),
+  // 6 Find articles that contain "tips" on the title. 
+  "6. Find articles that contain 'tips' on the title. : ",
+  spitter(), 
+  quest6,
+  spitter(),
+  // 7 Find articles published before August 2019.
+  "7. Find articles published before August 2019. : ",
+  spitter(), 
+  quest7,
   spitter()
 )
 
