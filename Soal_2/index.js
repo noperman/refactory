@@ -62,15 +62,25 @@ search(
 let quest7 = []
 search(
   data,
+  // "if(element['articles:'].length > 0){"+
+  //   "element['articles:'].forEach(subel => {"+
+  //     "var date = new Date(subel.published_at);"+
+  //     "if(date.getFullYear() == 2019){"+
+  //       "if(date.getMonth() < 8){"+
+  //         "quest7.push(element)"+
+  //       "}"+
+  //     "}"+
+  //   "})"+
+  // "}"
   "if(element['articles:'].length > 0){"+
-    "element['articles:'].forEach(subel => {"+
-      "var date = new Date(subel.published_at);"+
+    "for(var i=0;i < element['articles:'].length; i++){"+
+      "var date = new Date(element['articles:'][i].published_at);"+
       "if(date.getFullYear() == 2019){"+
         "if(date.getMonth() < 8){"+
-          "quest7.push(element)"+
+          "quest7.push(element);break;"+
         "}"+
       "}"+
-    "})"+
+    "}"+
   "}"
 )
 
